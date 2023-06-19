@@ -1,0 +1,67 @@
+#mainTitle{
+  background-image: url(https://www.bgs.ac.uk/wp-content/uploads/2020/02/404-page-graphic_v2.jpg);
+  width: 400px;
+  height: 250px;
+  margin: 70px;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: large;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+#mainPart{
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mercator-projection.jpg/1200px-Mercator-projection.jpg);
+  background-size: contain;
+  position: absolute;
+  width: 3000px;
+  height: 998px;
+  margin-left: -8px;
+  margin-top: -9px;
+  background-color: black;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.card{
+  background-color: darkcyan;
+  font-family: "Times New Roman";
+  width: 270px;
+  height: 420px;
+  margin: 20px;
+  border-radius: 20px;
+  text-align: center;
+  word-wrap: break-word;
+  box-shadow: 0 8px 8px 0 yellow;
+}
+
+.card-image{
+  background-color: red;
+  height: 150px;
+  background-size: cover;
+  margin-bottom: 15px;
+  border-radius: 20px 20px 0px 0px ;
+}
+
+.car-1{
+  background-image: url(https://www.bakermckenzie.com/-/media/images/locations/img-portadajpgl.jpg?sc_lang=en);
+}
+
+.card:hover{
+  background-color: rgb(62,62,62);
+  cursor: pointer;
+  color: white;
+}
+
+#button{
+  background-color: green;
+  color: white;
+  width: 153px;
+  height: 62px;
+  border-radius: 48px;
+  margin-left: 458px;
+}

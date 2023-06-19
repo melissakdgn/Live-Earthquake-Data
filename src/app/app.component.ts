@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import * as xml2js from 'xml2js';
-import {NewsRss} from './news-rss';
+import * as xml2js from "xml2js";
+import {NewsRss} from "./news-rss";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import * as path from "path";
+
 
 
 @Component({
@@ -10,45 +13,51 @@ import {NewsRss} from './news-rss';
   styleUrls: ['./app.component.css']
 })
 
+
 export class AppComponent implements OnInit {
-
-  public RssData?: NewsRss;
-
 
   title = 'RSSparser';
 
-  constructor(
-    public http: HttpClient
-  ) {}
 
   ngOnInit(): void {
-    this.GetRssFeedData(); //content ve view kontrol edilmeden önce yalnızca bir kez çağırılır
+    this.GetRssFeedData();
+  }
+
+  constructor(public http: HttpClient,
+              private router: Router) {}
+
+
+  //router redirect dynamic
+  public directing(): void {
+    this.router.navigateByUrl('Cards');
   }
 
   GetRssFeedData()  {
-      const requestOptions: Object = {
+    const requestOptions: Object = {
       observe: 'body',
       responseType: 'text'
-      };
+    };
 
-      const xml_url = "https://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml";
+    const xml_url = "https://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml";
 
-       this.http.get<any>(xml_url, requestOptions).subscribe((data) => {
+    this.http.get<any>(xml_url, requestOptions).subscribe((data) => {
 
-          let parseString = xml2js.parseString;
+      let parseString = xml2js.parseString;
 
-          parseString(data, (err, result: NewsRss) => {
+      parseString(data, (err, result: NewsRss) => {
 
-            this.RssData = result;
+        RssClass.RssData = result;
 
-          });
+        localStorage.setItem('RssData',JSON.stringify(RssClass.RssData));
 
-          // return this.RssData;
-
+        this.directing();
       });
+    });
   }
-
 }
 
+export class RssClass {
+  static RssData?: NewsRss;
+}
 
 

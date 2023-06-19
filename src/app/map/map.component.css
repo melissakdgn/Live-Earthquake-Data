@@ -1,0 +1,48 @@
+#map {
+  height:900px;
+  width: 100%;
+}
+
+
+#popup {
+  position: absolute;
+  background-color: deeppink;
+  padding: 5px;
+  border: 2px solid red;
+  bottom: 8px;
+  left: -55px;
+  min-width: 164px;
+  border-radius: 23px;
+
+}
+
+#popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+#popup-closer:after {
+  content: "✖";
+}
+
+#popup:after, #popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+#popup:after {
+  border-top-color: deeppink;
+  border-width: 18px;
+  left: 42px;
+  margin-left: -11px;
+}
+#popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
